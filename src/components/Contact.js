@@ -1,60 +1,62 @@
 // src/components/Contact.js
 
-import React, { useRef } from 'react'
-// import emailjs from 'emailjs-com'
+import React, { useState } from 'react'
+import emailjs from 'emailjs-com'
 import ReCAPTCHA from "react-google-recaptcha"
 
 require("dotenv").config()
 
-const { default: axios } = require("axios")
-
 export default function Contact() {
-	const [name, setName] = React.useState("")
-	const [email, setEmail] = React.useState("")
-	const [subject, setSubject] = React.useState("")
-	const [message, setMessage] = React.useState("")
+	const [name, setName] = useState("")
+	const [email, setEmail] = useState("")
+	const [subject, setSubject] = useState("")
+	const [message, setMessage] = useState("")
+	const [captchaValue, setCaptchaValue] = useState("")
 
-	const captchaRef = useRef(null)
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		if (name === 'name') {
+			setName(value)
+		} else if (name === 'email') {
+			setEmail(value)
+		} else if (name === 'subject') {
+			setSubject(value)
+		} else if (name === 'message') {
+			setMessage(value)
+		}
+	}
+
+	const handleCaptchaChange = (value) => {
+		setCaptchaValue(value);
+	}
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 
-		const token = captchaRef.current.getValue()
-		captchaRef.current.reset()
-
-		await axios.post("http://localhost:2000/post", { token })
-			.then(res => {
-				if (res.data === true)
-					sendEmail(token)
-			})
-			.catch((error) => {
-				console.log(error)
-			})
-	}
-
-
-	const sendEmail = async (token) => {
-		let params = {
-			service_id: process.env.REACT_APP_EMAIL_SERVICE_ID,
-			template_id: process.env.REACT_APP_EMAIL_TEMPLATE_ID,
-			user_id: process.env.REACT_APP_EMAIL_KEY,
-			template_params: {
-				"name": document.getElementById("name").value,
-				"email": document.getElementById("email").value,
-				"subject": document.getElementById("subject").value,
-				"message": document.getElementById("message").value,
-				"g-recaptcha-response": token
-			}
+		if (!captchaValue) {
+			alert('Please complete the CAPTCHA.');
+			return
 		}
 
-		console.log(params)
-
-		await axios.post("https://api.emailjs.com/api/v1.0/email/send", params)
-			.then(() => {
-				window.location.reload()  // If the page should be reloaded after sending email
-			}, (error) => {
-				console.log(error.text)
-			})
+		try {
+			// Send email using EmailJS
+			await emailjs.send(
+				process.env.REACT_APP_EMAIL_SERVICE_ID,
+				process.env.REACT_APP_EMAIL_TEMPLATE_ID,
+				{
+					name,
+					email,
+					subject,
+					message
+				},
+				process.env.REACT_APP_EMAIL_KEY
+			)
+			alert('Email sent successfully!!')
+			window.location.reload()
+		} catch (error) {
+			console.error('Email sending failed:', error);
+			alert('Email sending failed. Please try again later.');
+		}
 	}
 
 	return (
@@ -67,16 +69,15 @@ export default function Contact() {
 						title="map"
 						className="absolute inset-0"
 						style={{ filter: "opacity(0.7)" }}
-						src="https://www.google.com/maps/embed/v1/place?q=Navya+Elite+Apartmnets,+27th+Main+Road,+VGS+Layout,+Muneshwara+Swamy+Layout,+Ejipura,+Bengaluru,+Karnataka,+India&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+						src="https://www.google.com/maps/embed/v1/place?q=Bengaluru,+Karnataka,+India&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
 					/>
 					<div className="bg-gray-900 relative flex flex-wrap py-6 rounded shadow-md">
 						<div className="lg:w-1/2 px-6">
 							<h2 className="title-font font-semibold text-white tracking-widest text-xs">
-								ADDRESS
+								CITY
 							</h2>
 							<p className="mt-1">
-								Navya Elite Apartments, Ejpura <br />
-								Bangalore, Karnataka 560047
+								Bangalore, Karnataka
 							</p>
 						</div>
 						<div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
@@ -86,10 +87,6 @@ export default function Contact() {
 							<a className="text-indigo-400 leading-relaxed">
 								adithya608@gmail.com
 							</a>
-							<h2 className="title-font font-semibold text-white tracking-widest text-xs mt-4">
-								PHONE
-							</h2>
-							<p className="leading-relaxed">+91-8848309497</p>
 						</div>
 					</div>
 				</div>
@@ -111,8 +108,9 @@ export default function Contact() {
 							type="text"
 							id="name"
 							name="name"
+							value={name}
 							className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-							onChange={(e) => setName(e.target.value)}
+							onChange={handleChange}
 						/>
 					</div>
 					<div className="relative mb-4">
@@ -123,8 +121,9 @@ export default function Contact() {
 							type="email"
 							id="email"
 							name="email"
+							value={email}
 							className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-							onChange={(e) => setEmail(e.target.value)}
+							onChange={handleChange}
 						/>
 					</div>
 					<div className="relative mb-4">
@@ -132,11 +131,12 @@ export default function Contact() {
 							Subject
 						</label>
 						<input
-							type="subject"
+							type="text"
 							id="subject"
 							name="subject"
+							value={subject}
+							onChange={handleChange}
 							className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-							onChange={(e) => setSubject(e.target.value)}
 						/>
 					</div>
 					<div className="relative mb-4">
@@ -148,13 +148,14 @@ export default function Contact() {
 						<textarea
 							id="message"
 							name="message"
+							value={message}
 							className="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-							onChange={(e) => setMessage(e.target.value)}
+							onChange={handleChange}
 						/>
 					</div>
 					<ReCAPTCHA
 						sitekey={process.env.REACT_APP_SITE_KEY}
-						ref={captchaRef}
+						onChange={handleCaptchaChange}
 					/>
 					<button
 						type="submit"

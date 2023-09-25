@@ -4,7 +4,7 @@ export const projects = [
     subtitle: "Python",
     description:
       "A script which checks for covid vaccine availability and sends an email if there is slot availability.",
-    image: "../public/project-1.gif",
+    image: "/public/project-1.gif",
     link: "https://reactbootcamp.com",
   },
 ]
