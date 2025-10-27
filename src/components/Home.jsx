@@ -1,21 +1,57 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { TypeAnimation } from 'react-type-animation';
 import './Home.css';
 
 const Home = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.3, delayChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: 'spring', stiffness: 100 }
+    }
+  };
+
   return (
     <section id="home" className="home">
-      <motion.h1 initial={{ y: -250 }} animate={{ y: 0 }} transition={{ type: 'spring', stiffness: 120 }}>
-        Welcome to my Portfolio
-      </motion.h1>
-      <motion.p 
-        className="subtitle"
-        initial={{ opacity: 0 }} 
-        animate={{ opacity: 1 }} 
-        transition={{ delay: 0.5, duration: 0.8 }}
+      <motion.div 
+        className="home-content"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
       >
-        MS in Computer Science with Specialization in Cybersecurity Student at Boston University.
-      </motion.p>
+        <motion.div variants={itemVariants} className="animation-container">
+          <TypeAnimation
+            sequence={[
+              'Hi, my name is Adithya.',
+              2000,
+              'I build and secure web applications.',
+              2000,
+            ]}
+            wrapper="h1"
+            cursor={true}
+            repeat={Infinity}
+            className="name"
+          />
+        </motion.div>
+        <motion.div variants={itemVariants} className="description-wrapper">
+          <p className="subtitle">
+            I'm a Master's student in Computer Science with a specialization in Cybersecurity at Boston University, passionate about creating secure and scalable digital experiences.
+          </p>
+        </motion.div>
+        <motion.div variants={itemVariants}>
+          <a href="#projects" className="cta-button">Check out my work!</a>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

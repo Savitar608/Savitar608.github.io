@@ -2,19 +2,50 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 90vh;
-    text-align: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 0 150px;
   }
   
-  .home h1 {
+  .home-content {
+    max-width: 1000px;
+  }
+  
+  .animation-container {
+    margin-bottom: 1rem;
+  }
+  
+  .name {
+    font-size: clamp(40px, 8vw, 80px);
+    color: #ccd6f6;
+    font-weight: 600;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.1;
   }
   
-  .home .subtitle {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-top: 1rem;
+  .subtitle {
+    margin-top: 25px;
+    color: #8892b0;
+    max-width: 540px;
+    line-height: 1.6;
+  }
+  
+  .cta-button {
+    color: var(--primary-color);
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 1.25rem 1.75rem;
+    font-size: 1rem;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    margin-top: 50px;
+    display: inline-block;
+  }
+  
+  .cta-button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
   }
   
