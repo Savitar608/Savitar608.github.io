@@ -1,0 +1,32 @@
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  
+  .project-card {
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -15px rgba(0,0,0,0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+  }
+  
+  .project-card .project-info {
+    padding: 1.5rem;
+  }
+  
+  .project-card h3 {
+    margin-top: 0;
+  }
+  
+  .project-card .project-links a {
+    margin-right: 1rem;
+    font-weight: bold;
+  }
+  

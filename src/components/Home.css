@@ -1,0 +1,20 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    text-align: center;
+  }
+  
+  .home h1 {
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .home .subtitle {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-top: 1rem;
+  }
+  

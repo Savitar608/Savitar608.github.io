@@ -1,0 +1,23 @@
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .about-text p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+  }
+  
+  .about-image {
+    max-width: 350px;
+    justify-self: center;
+  }
+  
+  .about-image img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px -15px rgba(0,0,0,0.7);
+  }
+  
