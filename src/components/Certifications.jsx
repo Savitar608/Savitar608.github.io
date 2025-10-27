@@ -1,36 +1,38 @@
 import React from 'react';
+import { FaLink } from 'react-icons/fa';
 import './Certifications.css';
 
 const certifications = [
-  { title: 'Advent of Cyber 2024', issuer: 'TryHackMe', date: 'Dec 2024' },
-  { title: 'CompTIA Pentest+ Learning Path', issuer: 'TryHackMe', date: 'May 2022' },
-  { title: 'Introduction to Cyber Security Learning Path', issuer: 'TryHackMe', date: 'May 2022' },
-  { title: 'Jr Penetration Tester Learning Path', issuer: 'TryHackMe', date: 'Apr 2022' },
-  { title: 'Web Fundamentals Learning Path', issuer: 'TryHackMe', date: 'Feb 2022' },
-  { title: 'Complete Beginner Learning Path', issuer: 'TryHackMe', date: 'Jan 2022' },
-  { title: 'The Complete Cyber Security Course: Hackers Exposed!', issuer: 'Udemy', date: 'Jan 2022' },
-  { title: 'Pre Security Learning Path', issuer: 'TryHackMe', date: 'Dec 2021' },
-  { title: 'Usable Security', issuer: 'Coursera', date: 'Jul 2021' },
-  { title: 'Capstone: Retrieving, Processing, and Visualizing Data with Python', issuer: 'Coursera', date: 'Jun 2021' },
-  { title: 'Python for Everybody Specialization', issuer: 'Coursera', date: 'Jun 2021' },
-  { title: 'Using Databases with Python', issuer: 'Coursera', date: 'May 2020' },
-  { title: 'Using Python to Access Web Data', issuer: 'Coursera', date: 'May 2020' },
-  { title: 'Programming for Everybody (Getting Started with Python)', issuer: 'Coursera', date: 'Apr 2020' },
-  { title: 'Python Data Structures', issuer: 'Coursera', date: 'Apr 2020' },
-  { title: 'Cybersecurity and Cyber Forensics', issuer: 'Quick Heal', date: 'Feb 2018' },
+    { title: 'Advent of Cyber 2024', issuer: 'TryHackMe', date: 'Dec 2024', link: 'https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-1DAR3U98ZA.pdf' },
+    { title: 'CompTIA Pentest+ Learning Path', issuer: 'TryHackMe', date: 'May 2022', link: 'https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-ZRRYMID7CX.pdf' },
+    { title: 'Introduction to Cyber Security Learning Path', issuer: 'TryHackMe', date: 'May 2022', link: 'https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-GSIBEICFLI.pdf' },
+    { title: 'Jr Penetration Tester Learning Path', issuer: 'TryHackMe', date: 'Apr 2022', link: 'https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-2XJNI7JTHC.pdf' },
+    { title: 'Web Fundamentals Learning Path', issuer: 'TryHackMe', date: 'Feb 2022', link: 'https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-QBPRTQ8HXJ.pdf' },
+    { title: 'Complete Beginner Learning Path', issuer: 'TryHackMe', date: 'Jan 2022', link: 'https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-GNW6I5VYTR.pdf' },
+    { title: 'The Complete Cyber Security Course: Hackers Exposed!', issuer: 'Udemy', date: 'Jan 2022', link: 'https://www.udemy.com/certificate/UC-12b99705-69e2-46cf-8335-19a210a4b22a/' },
+    { title: 'Pre Security Learning Path', issuer: 'TryHackMe', date: 'Dec 2021', link: 'https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-NGR9C3XDW3.pdf' },
+    { title: 'Usable Security', issuer: 'Coursera', date: 'Jul 2021', link: 'https://www.coursera.org/account/accomplishments/certificate/8GRPUN52J767' },
+    { title: 'Capstone: Retrieving, Processing, and Visualizing Data with Python', issuer: 'Coursera', date: 'Jun 2021', link: 'https://www.coursera.org/account/accomplishments/certificate/Z2ARBJBC9RDD' },
+    { title: 'Python for Everybody Specialization', issuer: 'Coursera', date: 'Jun 2021', link: 'https://www.coursera.org/account/accomplishments/specialization/certificate/KJ7HGC3F8ULQ' },
+    { title: 'Using Databases with Python', issuer: 'Coursera', date: 'May 2020', link: 'https://www.coursera.org/account/accomplishments/certificate/EYKC3WUN6SKL' },
+    { title: 'Using Python to Access Web Data', issuer: 'Coursera', date: 'May 2020', link: 'https://www.coursera.org/account/accomplishments/certificate/H759BNAVXU8X' },
+    { title: 'Programming for Everybody (Getting Started with Python)', issuer: 'Coursera', date: 'Apr 2020', link: 'https://www.coursera.org/account/accomplishments/certificate/QGRE76YLKECC' },
+    { title: 'Python Data Structures', issuer: 'Coursera', date: 'Apr 2020', link: 'https://www.coursera.org/account/accomplishments/certificate/Q3XJMZRZJKEX' },
+    { title: 'Cybersecurity and Cyber Forensics', issuer: 'Quick Heal', date: 'Feb 2018', link: '' },
 ];
 
 const Certifications = () => {
   return (
     <section id="certifications">
       <h2>Licenses & Certifications</h2>
-      <div className="certifications-grid">
+      <div className="certifications-list">
         {certifications.map((cert, index) => (
-          <div className="certification-card" key={index}>
-            <h3 className="cert-title">{cert.title}</h3>
-            <p className="cert-issuer">{cert.issuer}</p>
-            <p className="cert-date">Issued {cert.date}</p>
-          </div>
+          <a href={cert.link} target="_blank" rel="noopener noreferrer" className="certification-item" key={index}>
+            <span className="cert-title">{cert.title}</span>
+            <span className="cert-issuer">{cert.issuer}</span>
+            <span className="cert-date">Issued {cert.date}</span>
+            <span className="cert-link-icon"><FaLink /></span>
+          </a>
         ))}
       </div>
     </section>
