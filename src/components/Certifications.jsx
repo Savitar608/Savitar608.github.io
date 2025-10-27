@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaLink } from 'react-icons/fa';
 import './Certifications.css';
+import quickHealCert from '../assets/quick-heal-cert.jpeg';
 
 const certifications = [
     { title: 'Advent of Cyber 2024', issuer: 'TryHackMe', date: 'Dec 2024', link: 'https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-1DAR3U98ZA.pdf' },
@@ -18,7 +19,7 @@ const certifications = [
     { title: 'Using Python to Access Web Data', issuer: 'Coursera', date: 'May 2020', link: 'https://www.coursera.org/account/accomplishments/certificate/H759BNAVXU8X' },
     { title: 'Programming for Everybody (Getting Started with Python)', issuer: 'Coursera', date: 'Apr 2020', link: 'https://www.coursera.org/account/accomplishments/certificate/QGRE76YLKECC' },
     { title: 'Python Data Structures', issuer: 'Coursera', date: 'Apr 2020', link: 'https://www.coursera.org/account/accomplishments/certificate/Q3XJMZRZJKEX' },
-    { title: 'Cybersecurity and Cyber Forensics', issuer: 'Quick Heal', date: 'Feb 2018', link: '' },
+    { title: 'Cybersecurity and Cyber Forensics', issuer: 'Quick Heal', date: 'Feb 2018', link: quickHealCert },
 ];
 
 const Certifications = () => {
