@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import Experience from './components/Experience';
+import Education from './components/Education';
 import Projects from './components/Projects';
 import TryHackMe from './components/TryHackMe';
 import Footer from './components/Footer';
@@ -26,6 +27,9 @@ function App() {
         </motion.div>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
           <Experience />
+        </motion.div>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+          <Education />
         </motion.div>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
           <Projects />
