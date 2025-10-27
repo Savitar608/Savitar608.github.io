@@ -3,10 +3,10 @@ import './Projects.css';
 
 const projects = [
     {
-        title: 'Bluetooth Cyber Watch',
-        description: 'A dedicated Discord bot designed to keep you and your community informed about the latest cybersecurity news and vulnerabilities specifically related to Bluetooth technology.',
+        title: 'Cyber Watch',
+        description: 'A dedicated Discord bot designed to keep you and your community informed about the latest cybersecurity news and vulnerabilities.',
         tags: ['Python', 'Security', 'Discord Bot'],
-        github: 'https://github.com/Savitar608/bluetooth-cyber-watch'
+        github: 'https://github.com/Savitar608/cyber-watch',
     }
 ];
 
