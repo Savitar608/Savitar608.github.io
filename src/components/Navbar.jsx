@@ -10,7 +10,7 @@ const Navbar = () => {
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#certifications">Certifications</a></li>
-        {/* <li><a href="#projects">Projects</a></li> */}
+        <li><a href="#projects">Projects</a></li>
         <li>
           <a href="https://github.com/Savitar608" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
         </li>

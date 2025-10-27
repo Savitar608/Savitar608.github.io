@@ -34,7 +34,7 @@ const Home = () => {
             sequence={[
               'Hi, my name is Adithya.',
               2000,
-              'I build and secure web applications.',
+              'I love cybersecurity.',
               2000,
             ]}
             wrapper="h1"
