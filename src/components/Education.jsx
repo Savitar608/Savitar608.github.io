@@ -1,23 +1,18 @@
+import React from 'react';
 import './Education.css';
 
 const educationHistory = [
   {
     institution: 'Boston University',
-    degree: 'MS in Computer Science, Specialization in Cybersecurity',
-    date: 'Expected Graduation: Winter 2026',
+    degree: 'Master of Science - MS, Computer Science with Specialization in Cybersecurity',
+    date: 'Sep 2025 - May 2027',
     description: ''
   },
   {
-    institution: 'BITS Pilani - KK Birla Goa Campus',
-    degree: 'M.Sc. Mathematics and B.E. Mechanical Engineering',
-    date: 'Aug 2017 - May 2022',
+    institution: 'Birla Institute of Technology and Science, Pilani - Goa Campus',
+    degree: "Master's degree, Mathematics",
+    date: '2017 - 2022',
     description: ''
-  },
-  {
-    institution: 'VSSC Central School',
-    degree: 'Higher Secondary Certificate',
-    date: 'April 2005 - March 2017',
-    description: 'Best outgoing student (Male) award in 2017. Topper in Computer Science, Chemistry and Physics.'
   }
 ];
 
