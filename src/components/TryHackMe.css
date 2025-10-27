@@ -1,8 +1,12 @@
-.tryhackme-container {
+.tryhackme-section {
+    padding-bottom: 1rem; /* Or any other value you prefer */
+  }
+  
+  .tryhackme-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 0;
+    padding-top: 2rem;
   }
   
   .tryhackme-iframe {

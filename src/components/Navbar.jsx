@@ -11,7 +11,6 @@ const Navbar = () => {
         <li><a href="#education">Education</a></li>
         <li><a href="#certifications">Certifications</a></li>
         {/* <li><a href="#projects">Projects</a></li> */}
-        <li><a href="#tryhackme">TryHackMe</a></li>
         <li>
           <a href="https://github.com/Savitar608" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
         </li>

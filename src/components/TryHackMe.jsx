@@ -3,7 +3,7 @@ import './TryHackMe.css';
 
 const TryHackMe = () => {
   return (
-    <section id="tryhackme">
+    <section id="tryhackme" className="tryhackme-section">
       <h2>TryHackMe Profile</h2>
       <div className="tryhackme-container">
         <iframe 

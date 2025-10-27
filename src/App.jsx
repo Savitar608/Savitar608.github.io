@@ -38,9 +38,9 @@ function App() {
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
           <Certifications />
         </motion.div>
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+        {/* <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
           <TryHackMe />
-        </motion.div>
+        </motion.div> */}
       </main>
       <Footer />
     </div>

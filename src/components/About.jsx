@@ -32,6 +32,14 @@ const About = () => {
           <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0 auto' }}>
             <p style={{color: 'black'}}>Your Image Here</p>
           </div>
+          <div className="tryhackme-badge-container">
+            <iframe 
+              src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=466514" 
+              frameBorder="0"
+              className="tryhackme-badge-iframe"
+              title="TryHackMe Profile Badge"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>
