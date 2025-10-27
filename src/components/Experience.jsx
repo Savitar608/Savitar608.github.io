@@ -3,16 +3,42 @@ import './Experience.css';
 
 const experiences = [
   {
-    role: 'Cybersecurity Intern',
-    company: 'Secure Solutions Inc.',
-    date: 'Summer 2024',
-    description: 'Assisted the security team with vulnerability assessments and penetration testing exercises. Monitored network traffic and analyzed security alerts.'
+    company: 'Full-Time Company Name',
+    type: 'Full-time',
+    roles: [
+      {
+        role: 'Your Promoted Role',
+        date: 'Month Year - Present',
+        description: 'Describe your responsibilities and achievements in your current role.'
+      },
+      {
+        role: 'Your Initial Role',
+        date: 'Month Year - Month Year',
+        description: 'Describe your responsibilities and achievements in your initial role.'
+      }
+    ]
   },
   {
-    role: 'Software Developer Intern',
-    company: 'Tech Innovations LLC',
-    date: 'Summer 2023',
-    description: 'Developed and maintained features for a web application using React and Node.js. Collaborated with a team of developers in an Agile environment.'
+    company: 'Internship Company 1',
+    type: 'Internship',
+    roles: [
+      {
+        role: 'Internship Role 1',
+        date: 'Month Year - Month Year',
+        description: 'Describe your responsibilities and what you learned during this internship.'
+      }
+    ]
+  },
+  {
+    company: 'Internship Company 2',
+    type: 'Internship',
+    roles: [
+      {
+        role: 'Internship Role 2',
+        date: 'Month Year - Month Year',
+        description: 'Describe your responsibilities and what you learned during this internship.'
+      }
+    ]
   }
 ];
 
@@ -21,12 +47,18 @@ const Experience = () => {
     <section id="experience">
       <h2>Work Experience</h2>
       <div className="experience-grid">
-        {experiences.map((exp, index) => (
+        {experiences.map((job, index) => (
           <div className="experience-card" key={index}>
-            <h3>{exp.role}</h3>
-            <p className="company">{exp.company}</p>
-            <p className="date">{exp.date}</p>
-            <p>{exp.description}</p>
+            <h3>{job.company}</h3>
+            <p className="job-type">{job.type}</p>
+            {job.roles.map((role, roleIndex) => (
+              <div className="role" key={roleIndex}>
+                <h4>{role.role}</h4>
+                <p className="date">{role.date}</p>
+                <p>{role.description}</p>
+                {roleIndex < job.roles.length - 1 && <hr className="role-divider" />}
+              </div>
+            ))}
           </div>
         ))}
       </div>
