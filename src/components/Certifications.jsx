@@ -23,18 +23,30 @@ const certifications = [
 ];
 
 const Certifications = () => {
+  const midIndex = Math.ceil(certifications.length / 2);
+  const leftColumn = certifications.slice(0, midIndex);
+  const rightColumn = certifications.slice(midIndex);
+
+  const renderColumn = (column, startIndex = 0) => (
+    <div className="certifications-column">
+      {column.map((cert, index) => (
+        <a href={cert.link} target="_blank" rel="noopener noreferrer" className="certification-item" key={startIndex + index}>
+          <div className="cert-info">
+            <span className="cert-title">{cert.title}</span>
+            <span className="cert-details">{cert.issuer} &bull; {cert.date}</span>
+          </div>
+          <span className="cert-link-icon"><FaLink /></span>
+        </a>
+      ))}
+    </div>
+  );
+
   return (
     <section id="certifications">
       <h2>Licenses & Certifications</h2>
       <div className="certifications-list">
-        {certifications.map((cert, index) => (
-          <a href={cert.link} target="_blank" rel="noopener noreferrer" className="certification-item" key={index}>
-            <span className="cert-title">{cert.title}</span>
-            <span className="cert-issuer">{cert.issuer}</span>
-            <span className="cert-date">Issued {cert.date}</span>
-            <span className="cert-link-icon"><FaLink /></span>
-          </a>
-        ))}
+        {renderColumn(leftColumn)}
+        {renderColumn(rightColumn, midIndex)}
       </div>
     </section>
   );
