@@ -41,6 +41,7 @@ const Home = () => {
             cursor={true}
             repeat={Infinity}
             className="name"
+            preRenderFirstString={true}
           />
         </motion.div>
         <motion.div variants={itemVariants} className="description-wrapper">
