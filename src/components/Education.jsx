@@ -10,7 +10,7 @@ const educationHistory = [
   },
   {
     institution: 'Birla Institute of Technology and Science, Pilani - Goa Campus',
-    degree: "Master's degree, Mathematics",
+    degree: "Master of Science - Mathematics and Bachelor of Engineering - BE, Mechanical Engineering",
     date: '2017 - 2022',
     description: 'Core member of the Department of Publicity and Public Relations.'
   }
