@@ -5,10 +5,11 @@
     padding: 2rem 0;
   }
   
-  .tryhackme-container iframe {
-    max-width: 800px;
-    width: 100%;
-    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
+  .tryhackme-iframe {
+    width: 350px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    border: none;
+    overflow: hidden;
   }
+  
   

@@ -8,7 +8,7 @@ const TryHackMe = () => {
       <div className="tryhackme-container">
         <iframe 
           src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=466514" 
-          style={{ border: 'none', width: '100%', height: '500px' }}
+          className="tryhackme-iframe"
           title="TryHackMe Profile"
         ></iframe>
       </div>
