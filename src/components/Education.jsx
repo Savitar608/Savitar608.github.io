@@ -12,7 +12,7 @@ const educationHistory = [
     institution: 'Birla Institute of Technology and Science, Pilani - Goa Campus',
     degree: "Master's degree, Mathematics",
     date: '2017 - 2022',
-    description: ''
+    description: 'Core member of the Department of Publicity and Public Relations.'
   }
 ];
 
