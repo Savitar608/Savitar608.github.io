@@ -1,7 +1,7 @@
 import React from 'react';
 import './About.css';
 // You can add your own image to the assets folder and import it here
-// import profilePic from '../assets/profile.jpg'; 
+import profilePic from '../assets/profile.jpg'; 
 
 const About = () => {
   return (
@@ -28,14 +28,10 @@ const About = () => {
           </ul>
         </div>
         <div className="about-image">
-          {/* <img src={profilePic} alt="Your Name" /> */}
-          <div style={{ width: '300px', height: '300px', backgroundColor: '#ccc', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0 auto' }}>
-            <p style={{color: 'black'}}>Your Image Here</p>
-          </div>
+          <img src={profilePic} alt="Adithya" />
           <div className="tryhackme-badge-container">
             <iframe 
               src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=466514" 
-              frameBorder="0"
               className="tryhackme-badge-iframe"
               title="TryHackMe Profile Badge"
             ></iframe>
