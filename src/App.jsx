@@ -5,7 +5,6 @@ import About from './components/About';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Projects from './components/Projects';
-import TryHackMe from './components/TryHackMe';
 import Footer from './components/Footer';
 import Certifications from './components/Certifications';
 import './App.css';
