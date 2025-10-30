@@ -21,6 +21,7 @@
     align-items: center;
     color: var(--text-color);
     text-decoration: none;
+    min-height: 60px; /* Ensure all items have the same height */
   }
   
   .certification-item:hover {

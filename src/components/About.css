@@ -8,6 +8,7 @@
   .about-text p {
     line-height: 1.8;
     font-size: 1.1rem;
+    text-align: justify;
   }
   
   .about-image {
@@ -36,3 +37,26 @@
     overflow: hidden;
   }
   
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-text p {
+    text-align: justify;
+  }
+
+  .about-image {
+    max-width: 300px;
+  }
+
+  .about-image img {
+    height: 300px;
+  }
+
+  .tryhackme-badge-iframe {
+    width: 100%;
+    max-width: 350px;
+  }
+}

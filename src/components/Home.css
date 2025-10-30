@@ -49,3 +49,14 @@
     background-color: rgba(100, 255, 218, 0.1);
   }
   
+@media (max-width: 768px) {
+  .home {
+    padding: 0 2rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .subtitle {
+    max-width: 100%;
+  }
+}
