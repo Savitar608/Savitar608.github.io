@@ -43,11 +43,6 @@ const Home = () => {
             preRenderFirstString={true}
           />
         </Motion.div>
-        <Motion.div variants={itemVariants} className="description-wrapper">
-          <p className="subtitle">
-            I'm a Master's student in Computer Science with a specialization in Cybersecurity at Boston University, passionate about creating secure and scalable digital experiences.
-          </p>
-        </Motion.div>
         <Motion.div variants={itemVariants}>
           <a href="#projects" className="cta-button">Check out my work!</a>
         </Motion.div>
