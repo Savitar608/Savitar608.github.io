@@ -16,7 +16,7 @@
   }
   
   .name {
-    font-size: clamp(40px, 8vw, 80px);
+    font-size: clamp(32px, 6.4vw, 64px);
     color: #ccd6f6;
     font-weight: 600;
     margin: 0;
