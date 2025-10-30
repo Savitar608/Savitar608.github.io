@@ -7,6 +7,7 @@ import Education from './components/Education';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import Certifications from './components/Certifications';
+import Contact from './components/Contact';
 import './App.css';
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
         </motion.div>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
           <Certifications />
+        </motion.div>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}>
+          <Contact />
         </motion.div>
       </main>
       <Footer />
