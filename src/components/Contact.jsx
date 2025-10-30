@@ -1,44 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 import './Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-    botCheck: ''
-  });
+  const form = useRef();
+  const [captchaValue, setCaptchaValue] = useState(null);
   const [status, setStatus] = useState('');
 
-  const num1 = 7;
-  const num2 = 5;
-  const correctAnswer = num1 + num2;
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+  const handleCaptchaChange = (value) => {
+    setCaptchaValue(value);
   };
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    if (parseInt(formData.botCheck, 10) !== correctAnswer) {
-      setStatus('Error: Incorrect answer to the security question.');
+
+    if (!captchaValue) {
+      setStatus('Error: Please complete the CAPTCHA.');
       return;
     }
 
-    // In a real application, you would handle the form submission here,
-    // e.g., send the data to a backend server or an email service.
-    console.log('Form data submitted:', formData);
-    setStatus('Success: Thank you for your message!');
-    setFormData({
-      name: '',
-      email: '',
-      message: '',
-      botCheck: ''
-    });
+    emailjs.sendForm(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+        form.current, 
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY
+      )
+      .then((result) => {
+          console.log(result.text);
+          setStatus('Success: Thank you for your message!');
+          e.target.reset();
+          setCaptchaValue(null);
+      }, (error) => {
+          console.log(error.text);
+          setStatus('Error: Email sending failed. Please try again later.');
+      });
   };
 
   return (
@@ -48,22 +44,18 @@ const Contact = () => {
         I'm currently looking for new opportunities, and my inbox is always open.
         Whether you have a question or just want to say hi, I'll get back to you!
       </p>
-      <form onSubmit={handleSubmit} className="contact-form">
+      <form ref={form} onSubmit={sendEmail} className="contact-form">
         <div className="form-group">
           <input
             type="text"
-            name="name"
+            name="user_name"
             placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
             required
           />
           <input
             type="email"
-            name="email"
+            name="user_email"
             placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
             required
           />
         </div>
@@ -71,21 +63,14 @@ const Contact = () => {
           <textarea
             name="message"
             placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
             required
           ></textarea>
         </div>
-        <div className="form-group bot-check">
-          <label htmlFor="botCheck">Security Question: What is {num1} + {num2}?</label>
-          <input
-            type="text"
-            name="botCheck"
-            id="botCheck"
-            placeholder="Your Answer"
-            value={formData.botCheck}
-            onChange={handleChange}
-            required
+        <div className="form-group recaptcha-container">
+          <ReCAPTCHA
+            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+            onChange={handleCaptchaChange}
+            theme="dark"
           />
         </div>
         <button type="submit" className="submit-button">Say Hello</button>
