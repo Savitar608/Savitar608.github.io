@@ -1,5 +1,4 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import './Home.css';
 
@@ -23,13 +22,13 @@ const Home = () => {
 
   return (
     <section id="home" className="home">
-      <motion.div 
+      <Motion.div 
         className="home-content"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="animation-container">
+        <Motion.div variants={itemVariants} className="animation-container">
           <TypeAnimation
             sequence={[
               'Hi, my name is Adithya.',
@@ -43,16 +42,16 @@ const Home = () => {
             className="name"
             preRenderFirstString={true}
           />
-        </motion.div>
-        <motion.div variants={itemVariants} className="description-wrapper">
+        </Motion.div>
+        <Motion.div variants={itemVariants} className="description-wrapper">
           <p className="subtitle">
             I'm a Master's student in Computer Science with a specialization in Cybersecurity at Boston University, passionate about creating secure and scalable digital experiences.
           </p>
-        </motion.div>
-        <motion.div variants={itemVariants}>
+        </Motion.div>
+        <Motion.div variants={itemVariants}>
           <a href="#projects" className="cta-button">Check out my work!</a>
-        </motion.div>
-      </motion.div>
+        </Motion.div>
+      </Motion.div>
     </section>
   );
 };
