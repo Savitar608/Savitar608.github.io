@@ -1,16 +1,25 @@
-# React + Vite
+# Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio website built with React and Vite. It showcases my skills, experience, and projects. The website is designed to be fully responsive and features modern animations.
 
-Currently, two official plugins are available:
+You can view the live site here: [https://Savitar608.github.io](https://Savitar608.github.io)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Dynamic terminal-style typing animation on the home page.
+- Sections for About Me, Experience, Education, Certifications, and Projects.
+- Interactive contact form using EmailJS and Google ReCAPTCHA for spam protection.
+- Smooth animations and transitions with Framer Motion.
+- Responsive design for optimal viewing on all devices.
+- Embedded TryHackMe profile badge.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React.js, Vite, HTML5, CSS3
+- **Libraries**:
+  - `framer-motion` for animations.
+  - `react-type-animation` for the typing effect.
+  - `react-icons` for icons.
+  - `@emailjs/browser` for the contact form.
+  - `react-google-recaptcha` for spam protection.
+- **Deployment**: GitHub Pages
