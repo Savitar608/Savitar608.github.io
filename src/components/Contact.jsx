@@ -48,13 +48,13 @@ const Contact = () => {
         <div className="form-group">
           <input
             type="text"
-            name="user_name"
+            name="name"
             placeholder="Your Name"
             required
           />
           <input
             type="email"
-            name="user_email"
+            name="email"
             placeholder="Your Email"
             required
           />
