@@ -3,11 +3,23 @@ import './Projects.css';
 
 const projects = [
     {
+        title: 'Smart Bookmarks',
+        description: 'Developed a cross-browser extension (Chrome/Firefox) that utilizes Large Language Models (LLMs) to automatically categorize and organize user bookmarks in real-time.',
+        tags: ['Browser Extension', 'LLM', 'Productivity', 'JavaScript'],
+        github: 'https://github.com/Savitar608/smart-bookmarks'
+    },
+    {
+        title: 'NPM Supply Chain Defender',
+        description: 'Engineered a multi-stage security framework designed to detect malicious npm packages through a hybrid analysis pipeline, balancing performance with detection accuracy.',
+        tags: ['Python', 'Security', 'Supply Chain Security', 'Malware Analysis', 'npm'],
+        github: 'https://github.com/orgs/ec521-null-pointers/repositories',
+    },
+    {
         title: 'Cyber Watch',
         description: 'A dedicated Discord bot designed to keep you and your community informed about the latest cybersecurity news and vulnerabilities.',
         tags: ['Python', 'Security', 'Discord Bot'],
         github: 'https://github.com/Savitar608/cyber-watch',
-    }
+    },
 ];
 
 const Projects = () => {
