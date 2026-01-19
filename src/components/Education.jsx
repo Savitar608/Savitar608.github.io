@@ -5,7 +5,8 @@ const educationHistory = [
   {
     institution: 'Boston University',
     degree: 'Master of Science - MS, Computer Science with Specialization in Cybersecurity',
-    date: 'Sep 2025 - May 2027',
+    date: 'Sep 2025 - Dec 2026',
+    cgpa: '3.90/4.0',
     description: ''
   },
   {
@@ -26,6 +27,7 @@ const Education = () => {
             <h3>{edu.institution}</h3>
             <p className="degree">{edu.degree}</p>
             <p className="date">{edu.date}</p>
+            {edu.cgpa && <p className="cgpa">CGPA: {edu.cgpa}</p>}
             <p>{edu.description}</p>
           </div>
         ))}
