@@ -55,7 +55,7 @@ const Experience = () => {
               <div className="role" key={roleIndex}>
                 <h4>{role.role}</h4>
                 <p className="date">{role.date}</p>
-                <p>{role.description}</p>
+                <p className="description">{role.description}</p>
                 {roleIndex < job.roles.length - 1 && <hr className="role-divider" />}
               </div>
             ))}
